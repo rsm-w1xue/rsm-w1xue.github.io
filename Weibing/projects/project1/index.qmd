@@ -1,0 +1,39 @@
+---
+title: "Sales Performance Analysis Dashboard"
+author: Weibing Xue
+date: today
+format: html
+---
+
+# Business Problem
+
+How can we monitor regional sales performance efficiently and identify issues in real time to support business decision-making?
+
+# Data
+
+The dataset consists of regional sales data collected daily, including:
+- Sales volume by region
+- Product-level performance
+- Time-series sales trends
+
+# Method
+
+- Built automated dashboards using Excel (INDEX-MATCH, VLOOKUP, COUNTIFS)
+- Cleaned and validated data to identify anomalies
+- Aggregated regional performance metrics for comparison
+
+# Results
+
+- Improved reporting efficiency by automating data processing
+- Identified inconsistencies in sales data across regions
+- Enabled managers to track performance in real time
+
+# Business Insight
+
+Real-time visibility into sales performance allows companies to quickly detect issues and adjust strategy.
+
+# Recommendation
+
+- Implement automated dashboards across all regions
+- Standardize data collection processes to reduce inconsistencies
+- Use data-driven monitoring to support faster decision-making

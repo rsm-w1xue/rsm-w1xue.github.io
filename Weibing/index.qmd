@@ -1,0 +1,13 @@
+---
+title: "Weibing"
+about:
+  template: jolla
+  image: files/profile_pic.jpeg
+  links:
+    - icon: envelope
+      href: mailto:w1xue@ucsd.edu
+    - icon: linkedin
+      href: https://www.linkedin.com/in/weibing-xue-b9bb482a2
+---
+
+Welcome to my website!
