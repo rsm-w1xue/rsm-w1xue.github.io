@@ -1,0 +1,8 @@
+project:
+  type: website
+  output-dir: ../docs/hw1
+
+format:
+  html:
+    theme: cosmo
+    toc: true
