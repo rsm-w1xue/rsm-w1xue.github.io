@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Replication of Karlan & List (2007)",
+    "section": "",
+    "text": "This paper studies whether matching donations increase charitable giving. The authors conduct a large-scale field experiment where individuals are randomly assigned to receive a matching donation offer or not.\nBecause the treatment is randomly assigned, differences between the treatment and control groups can be interpreted as causal effects.\nThis paper is important because it provides causal evidence on how fundraising strategies can influence charitable giving behavior."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Replication of Karlan & List (2007)",
+    "section": "",
+    "text": "This paper studies whether matching donations increase charitable giving. The authors conduct a large-scale field experiment where individuals are randomly assigned to receive a matching donation offer or not.\nBecause the treatment is randomly assigned, differences between the treatment and control groups can be interpreted as causal effects.\nThis paper is important because it provides causal evidence on how fundraising strategies can influence charitable giving behavior."
+  },
+  {
+    "objectID": "index.html#main-analysis",
+    "href": "index.html#main-analysis",
+    "title": "Replication of Karlan & List (2007)",
+    "section": "Main Analysis",
+    "text": "Main Analysis\n\nlibrary(haven)\nlibrary(dplyr)\nlibrary(ggplot2)\n\ndf &lt;- read_dta(\"AERtables1-5.dta\")\n\n\nPreliminary Results\nThe summary statistics indicate that the donation rate is higher in the treatment group (2.28%) than in the control group (1.79%). This suggests that the presence of a matching offer increases the likelihood that an individual makes a donation.\n\ndf %&gt;%\n  filter(!is.na(treatment)) %&gt;%\n  group_by(treatment) %&gt;%\n  summarise(\n    avg_gave = mean(gave),\n    avg_size = mean(size),\n    avg_ask = mean(ask),\n    n = n()\n  )\n\n# A tibble: 2 × 5\n  treatment avg_gave avg_size avg_ask     n\n      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;\n1         0   0.0179     0       0    16687\n2         1   0.0220     2.50    2.00 33396\n\n\n\n\nRegression Results\nWe estimate a simple linear regression to measure the causal effect of the matching offer on the probability of giving.\n\nmodel &lt;- lm(gave ~ treatment, data = df)\ncoef(summary(model))\n\n               Estimate  Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 0.017858213 0.001100684 16.224643 4.779032e-59\ntreatment   0.004180355 0.001347910  3.101361 1.927403e-03\n\n\nThe regression results show that the coefficient on the treatment variable is positive and statistically significant. This indicates that receiving a matching donation offer increases the probability of making a contribution, consistent with the findings in the original paper.\n\n\nSomething Additional\nTo further illustrate the effect of the treatment, we visualize the difference in average donation rates between the treatment and control groups.\n\nggplot(df %&gt;% filter(!is.na(treatment)),\n       aes(x = factor(treatment), y = gave)) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  labs(x = \"Treatment Group\", y = \"Average Donation Rate\") +\n  theme_minimal()"
+  }
+]

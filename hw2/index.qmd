@@ -1,0 +1,65 @@
+---
+title: "Replication of Karlan & List (2007)"
+author: "Weibing Xue"
+date: today
+format: html
+---
+
+## Introduction
+
+This paper studies whether matching donations increase charitable giving. The authors conduct a large-scale field experiment where individuals are randomly assigned to receive a matching donation offer or not.
+
+Because the treatment is randomly assigned, differences between the treatment and control groups can be interpreted as causal effects.
+
+This paper is important because it provides causal evidence on how fundraising strategies can influence charitable giving behavior.
+
+## Main Analysis
+
+```{r, message=FALSE}
+library(haven)
+library(dplyr)
+library(ggplot2)
+
+df <- read_dta("AERtables1-5.dta")
+```
+
+
+### Preliminary Results
+
+The summary statistics indicate that the donation rate is higher in the treatment group (2.28%) than in the control group (1.79%). This suggests that the presence of a matching offer increases the likelihood that an individual makes a donation.
+
+
+```{r}
+df %>%
+  filter(!is.na(treatment)) %>%
+  group_by(treatment) %>%
+  summarise(
+    avg_gave = mean(gave),
+    avg_size = mean(size),
+    avg_ask = mean(ask),
+    n = n()
+  )
+```
+
+### Regression Results
+
+We estimate a simple linear regression to measure the causal effect of the matching offer on the probability of giving.
+
+```{r}
+model <- lm(gave ~ treatment, data = df)
+coef(summary(model))
+```
+
+The regression results show that the coefficient on the treatment variable is positive and statistically significant. This indicates that receiving a matching donation offer increases the probability of making a contribution, consistent with the findings in the original paper.
+
+### Something Additional
+
+To further illustrate the effect of the treatment, we visualize the difference in average donation rates between the treatment and control groups.
+
+```{r}
+ggplot(df %>% filter(!is.na(treatment)),
+       aes(x = factor(treatment), y = gave)) +
+  stat_summary(fun = mean, geom = "bar") +
+  labs(x = "Treatment Group", y = "Average Donation Rate") +
+  theme_minimal()
+```
