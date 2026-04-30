@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.13">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Weibing Xue">
-<meta name="dcterms.date" content="2026-04-22">
+<meta name="dcterms.date" content="2026-04-29">
 
 <title>Replication of Karlan &amp; List (2007)</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -60,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1790c40e334f2242849d86c724968cc2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -104,6 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -121,12 +126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#main-analysis" id="toc-main-analysis" class="nav-link" data-scroll-target="#main-analysis">Main Analysis</a>
-  <ul class="collapse">
-  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results">Preliminary Results</a></li>
-  <li><a href="#regression-results" id="toc-regression-results" class="nav-link" data-scroll-target="#regression-results">Regression Results</a></li>
-  <li><a href="#something-additional" id="toc-something-additional" class="nav-link" data-scroll-target="#something-additional">Something Additional</a></li>
-  </ul></li>
+  <li><a href="#descriptive-results" id="toc-descriptive-results" class="nav-link" data-scroll-target="#descriptive-results">Descriptive Results</a></li>
+  <li><a href="#average-treatment-effect-of-any-match-offer" id="toc-average-treatment-effect-of-any-match-offer" class="nav-link" data-scroll-target="#average-treatment-effect-of-any-match-offer">Average Treatment Effect of Any Match Offer</a></li>
+  <li><a href="#does-a-larger-match-ratio-matter" id="toc-does-a-larger-match-ratio-matter" class="nav-link" data-scroll-target="#does-a-larger-match-ratio-matter">Does a Larger Match Ratio Matter?</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -152,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2026</p>
+      <p class="date">April 29, 2026</p>
     </div>
   </div>
   
@@ -166,75 +169,299 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This paper studies whether matching donations increase charitable giving. The authors conduct a large-scale field experiment where individuals are randomly assigned to receive a matching donation offer or not.</p>
-<p>Because the treatment is randomly assigned, differences between the treatment and control groups can be interpreted as causal effects.</p>
-<p>This paper is important because it provides causal evidence on how fundraising strategies can influence charitable giving behavior.</p>
-</section>
-<section id="main-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="main-analysis">Main Analysis</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"AERtables1-5.dta"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="preliminary-results" class="level3">
-<h3 class="anchored" data-anchor-id="preliminary-results">Preliminary Results</h3>
-<p>The summary statistics indicate that the donation rate is higher in the treatment group (2.28%) than in the control group (1.79%). This suggests that the presence of a matching offer increases the likelihood that an individual makes a donation.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(treatment)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treatment) <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_gave =</span> <span class="fu">mean</span>(gave),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_size =</span> <span class="fu">mean</span>(size),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_ask =</span> <span class="fu">mean</span>(ask),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  treatment avg_gave avg_size avg_ask     n
-      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
-1         0   0.0179     0       0    16687
-2         1   0.0220     2.50    2.00 33396</code></pre>
-</div>
+<p>Karlan and List (2007) study whether matching donations make charitable solicitations more effective. Their experiment randomly assigns potential donors to receive either no match offer or a match offer of different sizes, so differences across groups can be interpreted as causal effects.</p>
+<p>In this replication, I focus on two questions. First, does offering any match increase the probability of making a donation? Second, do larger match ratios outperform a simple 1:1 match?</p>
+<div id="537ebe9b" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">"AERtables1-5.dta"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>group_labels <span class="op">=</span> {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0</span>: <span class="st">"Control"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fl">1.0</span>: <span class="st">"1:1 match"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fl">2.0</span>: <span class="st">"2:1 match"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fl">3.0</span>: <span class="st">"3:1 match"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"group"</span>] <span class="op">=</span> df[<span class="st">"ratio"</span>].<span class="bu">map</span>(group_labels)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="regression-results" class="level3">
-<h3 class="anchored" data-anchor-id="regression-results">Regression Results</h3>
-<p>We estimate a simple linear regression to measure the causal effect of the matching offer on the probability of giving.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(gave <span class="sc">~</span> treatment, <span class="at">data =</span> df)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(model))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               Estimate  Std. Error   t value     Pr(&gt;|t|)
-(Intercept) 0.017858213 0.001100684 16.224643 4.779032e-59
-treatment   0.004180355 0.001347910  3.101361 1.927403e-03</code></pre>
+<section id="descriptive-results" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-results">Descriptive Results</h2>
+<p>I start by comparing the donation rate and average gift size across the four experimental groups.</p>
+<div id="c8cf4c06" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>summary_table <span class="op">=</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">"group"</span>, observed<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        donation_rate<span class="op">=</span>(<span class="st">"gave"</span>, <span class="st">"mean"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        avg_amount<span class="op">=</span>(<span class="st">"amount"</span>, <span class="st">"mean"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        avg_positive_amount<span class="op">=</span>(<span class="st">"amount"</span>, <span class="kw">lambda</span> s: s[s <span class="op">&gt;</span> <span class="dv">0</span>].mean()),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        n<span class="op">=</span>(<span class="st">"gave"</span>, <span class="st">"size"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    .reindex([<span class="st">"Control"</span>, <span class="st">"1:1 match"</span>, <span class="st">"2:1 match"</span>, <span class="st">"3:1 match"</span>])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>summary_display <span class="op">=</span> (</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    summary_table.assign(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        donation_rate<span class="op">=</span><span class="kw">lambda</span> x: <span class="dv">100</span> <span class="op">*</span> x[<span class="st">"donation_rate"</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        avg_amount<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">"avg_amount"</span>].<span class="bu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        avg_positive_amount<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">"avg_positive_amount"</span>].<span class="bu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    .rename(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>{</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"donation_rate"</span>: <span class="st">"Donation rate (%)"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"avg_amount"</span>: <span class="st">"Average amount mailed ($)"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"avg_positive_amount"</span>: <span class="st">"Average gift among donors ($)"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"n"</span>: <span class="st">"N"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>({<span class="st">"Donation rate (%)"</span>: <span class="dv">2</span>})</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>summary_display.index.name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>summary_display.style.<span class="bu">format</span>(</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Donation rate (%)"</span>: <span class="st">"</span><span class="sc">{:.2f}</span><span class="st">"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Average amount mailed ($)"</span>: <span class="st">"</span><span class="sc">{:.2f}</span><span class="st">"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Average gift among donors ($)"</span>: <span class="st">"</span><span class="sc">{:.2f}</span><span class="st">"</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">"N"</span>: <span class="st">"</span><span class="sc">{:.0f}</span><span class="st">"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<style type="text/css">
+</style>
+
+<table id="T_d8ef4" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_d8ef4_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Donation rate (%)</th>
+<th id="T_d8ef4_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Average amount mailed ($)</th>
+<th id="T_d8ef4_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Average gift among donors ($)</th>
+<th id="T_d8ef4_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">N</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th"></th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_d8ef4_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Control</th>
+<td id="T_d8ef4_row0_col0" class="data row0 col0">1.79</td>
+<td id="T_d8ef4_row0_col1" class="data row0 col1">0.81</td>
+<td id="T_d8ef4_row0_col2" class="data row0 col2">45.54</td>
+<td id="T_d8ef4_row0_col3" class="data row0 col3">16687</td>
+</tr>
+<tr class="even">
+<th id="T_d8ef4_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1:1 match</th>
+<td id="T_d8ef4_row1_col0" class="data row1 col0">2.07</td>
+<td id="T_d8ef4_row1_col1" class="data row1 col1">0.94</td>
+<td id="T_d8ef4_row1_col2" class="data row1 col2">45.14</td>
+<td id="T_d8ef4_row1_col3" class="data row1 col3">11133</td>
+</tr>
+<tr class="odd">
+<th id="T_d8ef4_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2:1 match</th>
+<td id="T_d8ef4_row2_col0" class="data row2 col0">2.26</td>
+<td id="T_d8ef4_row2_col1" class="data row2 col1">1.03</td>
+<td id="T_d8ef4_row2_col2" class="data row2 col2">45.34</td>
+<td id="T_d8ef4_row2_col3" class="data row2 col3">11134</td>
+</tr>
+<tr class="even">
+<th id="T_d8ef4_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3:1 match</th>
+<td id="T_d8ef4_row3_col0" class="data row3 col0">2.27</td>
+<td id="T_d8ef4_row3_col1" class="data row3 col1">0.94</td>
+<td id="T_d8ef4_row3_col2" class="data row3 col2">41.25</td>
+<td id="T_d8ef4_row3_col3" class="data row3 col3">11129</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<p>The regression results show that the coefficient on the treatment variable is positive and statistically significant. This indicates that receiving a matching donation offer increases the probability of making a contribution, consistent with the findings in the original paper.</p>
+<p>The descriptive table already points to a clear pattern: every matching treatment has a higher donation rate than the control group. The increase is modest in absolute terms, but meaningful relative to a low baseline donation rate. At the same time, the average gift among people who do donate is fairly similar across groups, suggesting that the main effect of the match offer operates through participation rather than larger gift sizes.</p>
 </section>
-<section id="something-additional" class="level3">
-<h3 class="anchored" data-anchor-id="something-additional">Something Additional</h3>
-<p>To further illustrate the effect of the treatment, we visualize the difference in average donation rates between the treatment and control groups.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(treatment)),</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(treatment), <span class="at">y =</span> gave)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"bar"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Treatment Group"</span>, <span class="at">y =</span> <span class="st">"Average Donation Rate"</span>) <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
+<section id="average-treatment-effect-of-any-match-offer" class="level2">
+<h2 class="anchored" data-anchor-id="average-treatment-effect-of-any-match-offer">Average Treatment Effect of Any Match Offer</h2>
+<p>To estimate the overall causal effect of receiving any match offer, I run a linear probability model of the donation indicator on the treatment assignment and report heteroskedasticity-robust standard errors.</p>
+<div id="34d7efa5" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ate_model <span class="op">=</span> smf.ols(<span class="st">"gave ~ treatment"</span>, data<span class="op">=</span>df).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ate_effect <span class="op">=</span> ate_model.params[<span class="st">"treatment"</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ate_ci <span class="op">=</span> ate_model.conf_int().loc[<span class="st">"treatment"</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>control_rate <span class="op">=</span> df.loc[df[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">0</span>, <span class="st">"gave"</span>].mean()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ate_results <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Estimate (pp)"</span>: [<span class="dv">100</span> <span class="op">*</span> ate_effect],</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI lower"</span>: [<span class="dv">100</span> <span class="op">*</span> ate_ci[<span class="dv">0</span>]],</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI upper"</span>: [<span class="dv">100</span> <span class="op">*</span> ate_ci[<span class="dv">1</span>]],</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Control mean (%)"</span>: [<span class="dv">100</span> <span class="op">*</span> control_rate],</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Relative increase (%)"</span>: [<span class="dv">100</span> <span class="op">*</span> ate_effect <span class="op">/</span> control_rate],</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"Any match vs control"</span>],</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>ate_results.index.name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>ate_results.style.<span class="bu">format</span>(<span class="st">"</span><span class="sc">{:.2f}</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<style type="text/css">
+</style>
+
+<table id="T_c3b59" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_c3b59_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Estimate (pp)</th>
+<th id="T_c3b59_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">95% CI lower</th>
+<th id="T_c3b59_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">95% CI upper</th>
+<th id="T_c3b59_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Control mean (%)</th>
+<th id="T_c3b59_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Relative increase (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th"></th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col4" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_c3b59_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Any match vs control</th>
+<td id="T_c3b59_row0_col0" class="data row0 col0">0.42</td>
+<td id="T_c3b59_row0_col1" class="data row0 col1">0.16</td>
+<td id="T_c3b59_row0_col2" class="data row0 col2">0.67</td>
+<td id="T_c3b59_row0_col3" class="data row0 col3">1.79</td>
+<td id="T_c3b59_row0_col4" class="data row0 col4">23.41</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The estimated treatment effect is about <strong>0.42 percentage points</strong>, with a 95% confidence interval from roughly <strong>0.16 to 0.67 percentage points</strong>. Since the control-group donation rate is only about <strong>1.79%</strong>, this corresponds to roughly a <strong>23% increase</strong> in the probability of giving. This result supports the main conclusion of the paper: offering a match increases the likelihood that a recipient donates.</p>
+</section>
+<section id="does-a-larger-match-ratio-matter" class="level2">
+<h2 class="anchored" data-anchor-id="does-a-larger-match-ratio-matter">Does a Larger Match Ratio Matter?</h2>
+<p>The original experiment also varies the size of the match. To see whether more generous match ratios perform better, I compare the control group to the 1:1, 2:1, and 3:1 match offers separately.</p>
+<div id="cf45ff18" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ratio_plot <span class="op">=</span> summary_table.reset_index()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ratio_plot[<span class="st">"donation_rate_pct"</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> ratio_plot[<span class="st">"donation_rate"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ratio_plot[<span class="st">"se_pct"</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> np.sqrt(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    ratio_plot[<span class="st">"donation_rate"</span>] <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> ratio_plot[<span class="st">"donation_rate"</span>]) <span class="op">/</span> ratio_plot[<span class="st">"n"</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.bar(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ratio_plot[<span class="st">"group"</span>],</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    ratio_plot[<span class="st">"donation_rate_pct"</span>],</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>[<span class="st">"#8c8c8c"</span>, <span class="st">"#4c78a8"</span>, <span class="st">"#59a14f"</span>, <span class="st">"#f28e2b"</span>],</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>ax.errorbar(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>np.arange(<span class="bu">len</span>(ratio_plot)),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>ratio_plot[<span class="st">"donation_rate_pct"</span>],</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    yerr<span class="op">=</span><span class="fl">1.96</span> <span class="op">*</span> ratio_plot[<span class="st">"se_pct"</span>],</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    ecolor<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    capsize<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Experimental group"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Donation rate (%)"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Donation rates rise with any match offer"</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/cell-5-output-1.png" width="752" height="463" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<div id="978d8c4f" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>treated_only <span class="op">=</span> df.loc[df[<span class="st">"treatment"</span>] <span class="op">==</span> <span class="dv">1</span>].copy()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ratio_model <span class="op">=</span> smf.ols(<span class="st">"gave ~ C(ratio)"</span>, data<span class="op">=</span>treated_only).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ratio_results <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Estimate (pp)"</span>: [</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.params[<span class="st">"C(ratio)[T.2.0]"</span>],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.params[<span class="st">"C(ratio)[T.3.0]"</span>],</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI lower"</span>: [</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.conf_int().loc[<span class="st">"C(ratio)[T.2.0]"</span>, <span class="dv">0</span>],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.conf_int().loc[<span class="st">"C(ratio)[T.3.0]"</span>, <span class="dv">0</span>],</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI upper"</span>: [</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.conf_int().loc[<span class="st">"C(ratio)[T.2.0]"</span>, <span class="dv">1</span>],</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="op">*</span> ratio_model.conf_int().loc[<span class="st">"C(ratio)[T.3.0]"</span>, <span class="dv">1</span>],</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"2:1 vs 1:1"</span>, <span class="st">"3:1 vs 1:1"</span>],</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>ratio_results.index.name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>ratio_results.style.<span class="bu">format</span>(<span class="st">"</span><span class="sc">{:.2f}</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<style type="text/css">
+</style>
 
-
+<table id="T_b5e07" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_b5e07_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Estimate (pp)</th>
+<th id="T_b5e07_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">95% CI lower</th>
+<th id="T_b5e07_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">95% CI upper</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th"></th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_b5e07_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">2:1 vs 1:1</th>
+<td id="T_b5e07_row0_col0" class="data row0 col0">0.19</td>
+<td id="T_b5e07_row0_col1" class="data row0 col1">-0.19</td>
+<td id="T_b5e07_row0_col2" class="data row0 col2">0.57</td>
+</tr>
+<tr class="even">
+<th id="T_b5e07_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">3:1 vs 1:1</th>
+<td id="T_b5e07_row1_col0" class="data row1 col0">0.20</td>
+<td id="T_b5e07_row1_col1" class="data row1 col1">-0.18</td>
+<td id="T_b5e07_row1_col2" class="data row1 col2">0.58</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The figure shows that all three match offers outperform the control group, but the gains from moving beyond a 1:1 match are small. In the treated sample, the estimated differences between 2:1 and 1:1, and between 3:1 and 1:1, are both close to zero once sampling uncertainty is taken into account. This suggests that the presence of a match matters more than the exact match ratio.</p>
 </section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This replication supports the paper’s main empirical finding. Matching offers increase charitable giving on the extensive margin by making people more likely to donate at all. However, the evidence here does not suggest that larger match ratios generate substantially larger effects than a standard 1:1 match. In practical terms, charities may gain most of the benefit simply by announcing a match, without needing to offer a dramatically more generous ratio.</p>
+
+
 </section>
 
 </main> <!-- /main -->
